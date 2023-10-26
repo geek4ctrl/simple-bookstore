@@ -57,22 +57,22 @@ const Content = (props: any) => {
                 <button className="bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow sm:w-full w-full" onClick={sortTitleInAscendingOrder}>
                     Sort By Title(ASC)
 
-                    <span> <ion-icon name="arrow-up-outline"></ion-icon> </span>
+                    {/* <span> <ion-icon name="arrow-up-outline"></ion-icon> </span> */}
                 </button>
                 <button className="bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full" onClick={sortTitleInDescendingOrder}>
                     Sort By Title(DESC)
 
-                    <span> <ion-icon name="arrow-down-outline"></ion-icon> </span>
+                    {/* <span> <ion-icon name="arrow-down-outline"></ion-icon> </span> */}
                 </button>
                 <button className="bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full" onClick={sortAuthorInAscendingOrder}>
                     Sort By Author(ASC)
 
-                    <span> <ion-icon name="arrow-up-outline"></ion-icon> </span>
+                    {/* <span> <ion-icon name="arrow-up-outline"></ion-icon> </span> */}
                 </button>
                 <button className="bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full" onClick={sortAuthorInDescendingOrder}>
                     Sort By Author(DESC)
 
-                    <span> <ion-icon name="arrow-down-outline"></ion-icon> </span>
+                    {/* <span> <ion-icon name="arrow-down-outline"></ion-icon> </span> */}
                 </button>
 
             </div>
@@ -82,7 +82,7 @@ const Content = (props: any) => {
                 {
                     filteredAndStoredBooks && filteredAndStoredBooks.map(({ title, author }) => (
 
-                        <div className="basis-1/3 p-2">
+                        <div key="title" className="basis-1/3 p-2">
                             <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto my-8 w-85 w-full">
                                 <img className="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains" />
                                 <div className="px-6 py-4">
