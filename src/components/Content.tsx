@@ -82,7 +82,7 @@ const Content = (props: any) => {
                 {
                     filteredAndStoredBooks && filteredAndStoredBooks.map(({ title, author }) => (
 
-                        <div className="basis-1/3 p-2">
+                        <div key="title" className="basis-1/3 p-2">
                             <div className="max-w-sm rounded overflow-hidden shadow-lg mx-auto my-8 w-85 w-full">
                                 <img className="w-full" src="https://tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains" />
                                 <div className="px-6 py-4">
