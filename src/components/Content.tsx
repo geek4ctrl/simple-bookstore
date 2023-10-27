@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import books from "../local-json/books.json"
+import books from "../local-json/books.json";
 
 const Content = (props: any) => {
 
@@ -54,25 +54,25 @@ const Content = (props: any) => {
 
             <div className="lg:flex lg:flex-row sm:justify-center justify-around items-center m-5 sm:flex sm:flex-col w-100">
 
-                <button className="bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow sm:w-full w-full" onClick={sortTitleInAscendingOrder}>
+                <button className="flex flex-row items-center justify-center bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow sm:w-full w-full" onClick={sortTitleInAscendingOrder}>
                     Sort By Title(ASC)
 
-                    <span> <ion-icon name="arrow-up-outline"></ion-icon> </span>
+                    <span><img width="25" height="25" src="https://img.icons8.com/ios/50/up--v1.png" alt="up--v1" /></span>
                 </button>
-                <button className="bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full" onClick={sortTitleInDescendingOrder}>
+                <button className="flex flex-row items-center justify-center bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full" onClick={sortTitleInDescendingOrder}>
                     Sort By Title(DESC)
 
-                    <span> <ion-icon name="arrow-down-outline"></ion-icon> </span>
+                    <img width="25" height="25" src="https://img.icons8.com/ios/50/down--v1.png" alt="down--v1" />
                 </button>
-                <button className="bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full" onClick={sortAuthorInAscendingOrder}>
+                <button className="flex flex-row items-center justify-center bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full" onClick={sortAuthorInAscendingOrder}>
                     Sort By Author(ASC)
 
-                    <span> <ion-icon name="arrow-up-outline"></ion-icon> </span>
+                    <span><img width="25" height="25" src="https://img.icons8.com/ios/50/up--v1.png" alt="up--v1" /></span>
                 </button>
-                <button className="bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full" onClick={sortAuthorInDescendingOrder}>
+                <button className="flex flex-row items-center justify-center bg-white hover:bg-gray-100 text-gray-400 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full" onClick={sortAuthorInDescendingOrder}>
                     Sort By Author(DESC)
 
-                    <span> <ion-icon name="arrow-down-outline"></ion-icon> </span>
+                    <img width="25" height="25" src="https://img.icons8.com/ios/50/down--v1.png" alt="down--v1" />
                 </button>
 
             </div>
