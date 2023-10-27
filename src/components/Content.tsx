@@ -8,6 +8,8 @@ const Content = (props: any) => {
     const [filteredBooks, setFilteredBooks] = useState(books);
     const [filteredAndStoredBooks, setFilteredAndStoredBooks] = useState(books);
 
+    const [longestPalindrome, setLongestPalindrome] = useState("");
+
     const handleFilter = (event: any) => {
         const value = event.target.value;
         const filtered = books.filter(book => book.title.includes(value) || book.author.includes(value));
@@ -31,7 +33,42 @@ const Content = (props: any) => {
         setFilteredAndStoredBooks([...filteredBooks].sort((a: any, b: any) => a.author > b.author ? -1 : 1));
     }
 
-    // console.log('Lakisa ba buku: ', filteredBooks)
+    const longestPalindromicSubstring = (event: any) => {
+
+        const value = event.target.value;
+
+        if (value.length < 1) {
+            return "";
+        }
+
+        let longest = "";
+
+        for (let i = 0; i < value.length; i++) {
+            let palindrome1 = expandAroundCenter(value, i, i);
+            if (palindrome1.length > longest.length) {
+                longest = palindrome1;
+            }
+
+            let palindrome2 = expandAroundCenter(value, i, i + 1);
+            if (palindrome2.length > longest.length) {
+                longest = palindrome2;
+            }
+        }
+
+        setLongestPalindrome(longest)
+
+        return longest;
+    }
+
+
+    function expandAroundCenter(s: any, left: any, right: any) {
+        while (left >= 0 && right < s.length && s[left] === s[right]) {
+            left--;
+            right++;
+        }
+        return s.substring(left + 1, right);
+    }
+
 
     return (
 
@@ -102,6 +139,37 @@ const Content = (props: any) => {
                     ))
                 }
 
+            </div>
+
+            <div className="flex flex-col justify-center items-center mt-20 pt-20">
+
+                <div className="font-sans font-inter text-base leading-normal text-center tracking-tighter text-fill-fill bg-opacity-0 bg-black text-5xl">
+                    Longest Palindrome Problem
+                </div>
+                <div className="font-sans font-inter text-base leading-normal text-center tracking-tighter text-fill-fill bg-opacity-0 bg-black text-5xl text-gray-400">
+                    Solution.
+                </div>
+
+                <input className="p-16 bg-white focus:outline-none focus:shadow-outline border border-gray-100 rounded-md py-2 px-2 block appearance-none leading-normal mt-20 mb-20 w-1/2 shadow-md rounded-md"
+                    type="text"
+                    placeholder="Please type something..."
+                    onChange={longestPalindromicSubstring} />
+
+            </div>
+
+            <div className="flex flex-row mt-5 text-center p-4 bg-gray-100 flex-wrap ml-20 mr-20 rounded-md">
+
+                <p>Here is the longest Palindrome: {longestPalindrome} </p>
+
+            </div>
+
+            <div className="flex flex-row mt-5 text-center p-4 bg-gray-100 flex-wrap ml-20 mr-20 rounded-md">
+
+                <h1>Algorithm:</h1>
+
+                <div>
+                    <img src="https://res.cloudinary.com/dhqvb8wbn/image/upload/v1698390148/dky5aiffa8okg2hxjaen.png" alt="" />
+                </div>
             </div>
         </>
 
