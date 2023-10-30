@@ -33,42 +33,84 @@ const Content = (props: any) => {
         setFilteredAndStoredBooks([...filteredBooks].sort((a: any, b: any) => a.author > b.author ? -1 : 1));
     }
 
+
+    // Part 4: Probem-Solving
+
+
+    // A function named longestPalindromicSubstring that takes an input string event from the input field
     const longestPalindromicSubstring = (event: any) => {
 
+        // The event is passed to a const variable for simplicity of manipulation throughout the function
         const value = event.target.value;
 
+        // Checks the length of the input string. If it's an empty string, the function returns an empty string.
         if (value.length < 1) {
             return "";
         }
 
+        // Initializes an empty sstring. This will be used to store the longest palindromic substring
         let longest = "";
 
+        // Start a for loop that iterates through the characters of the input string. Th loop variable is used to
+        // represent the current character's index
+
         for (let i = 0; i < value.length; i++) {
+
+            // The function expandAroundCenter is called
             let palindrome1 = expandAroundCenter(value, i, i);
+
+            // This compares the length of the palindrome found with the length of the longest palindrome found so far
+            // If palindrome 2 is longer, it updates the longest variable with palindrome 2
             if (palindrome1.length > longest.length) {
                 longest = palindrome1;
             }
 
+            // The function expandAroundCenter is called
             let palindrome2 = expandAroundCenter(value, i, i + 1);
+
+            // This compares the length of the palindrome found with the length of the longest palindrome found so far
+            // If palindrome 2 is longer, it updates the longest variable with palindrome 2
             if (palindrome2.length > longest.length) {
                 longest = palindrome2;
             }
         }
 
+        // Passed the longest palindrome to be displayed
         setLongestPalindrome(longest)
 
+        // The function returns the longest variable
         return longest;
     }
 
+    // The expandAroundCenter is considered to be an helper function.
+    // It take the input string s and two indices, left and right which
+    // represent the potential centersof a palindrome.
 
     function expandAroundCenter(s: any, left: any, right: any) {
+
+        // The while loop checks if the characters at positions left and right are the same
+        // and if left and right are withing the boundary of the string.
+        // It expands outwards as long as the characters match and the indices are within 
+        // the string bounds.
+
         while (left >= 0 && right < s.length && s[left] === s[right]) {
             left--;
             right++;
         }
+
+        // Here it has found the maximum palindromic substring with the given center.
+        // It returns the the substring from left + 1 to right.
+        // This is the palindrome found.
         return s.substring(left + 1, right);
     }
 
+    // Part 5: Code Review
+
+    // The code provided appears to be using a templating engine liike EJS (Embedded JavaScript) to generate HTML content
+    // dynamically. But there is one issue: the `<% %> tags used to delimit JavaScript code blocks are not standard EJS syntax.
+
+    // The correct syntax for EJS code blocks should `<% %>` for Javscript code and `<%= %>` for outputting the result of 
+    // an expression. The code you provided uses '<%= %> inside the JavaScript code block, which is the correct usage.
 
     return (
 
@@ -163,7 +205,7 @@ const Content = (props: any) => {
 
             </div>
 
-            <div className="flex flex-row mt-5 text-center p-4 bg-gray-100 flex-wrap ml-20 mr-20 rounded-md">
+            <div className="flex flex-col  mt-5 text-left p-4 bg-gray-100 flex-wrap ml-20 mr-20 rounded-md">
 
                 <h1>Algorithm:</h1>
 
