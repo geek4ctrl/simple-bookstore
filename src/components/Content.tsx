@@ -163,7 +163,7 @@ const Content = (props: any) => {
 
             </div>
 
-            <div className="flex flex-row mt-5 text-center p-4 bg-gray-100 flex-wrap ml-20 mr-20 rounded-md">
+            <div className="flex flex-col  mt-5 text-left p-4 bg-gray-100 flex-wrap ml-20 mr-20 rounded-md">
 
                 <h1>Algorithm:</h1>
 
